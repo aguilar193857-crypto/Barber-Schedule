@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Barbería El Filo — Agendar cita</title>
+<link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+<header class="encabezado">
+  <div class="franja-barbero"></div>
+  <div class="marca">BARBERÍA <span>EL FILO</span></div>
+</header>
+
+<main>
+  <div class="tarjeta">
+    <h2>Agenda tu cita</h2>
+    <p style="color:var(--crema-tenue); margin-top:-8px;">Elige el servicio, la fecha y la hora. Te confirmamos aquí mismo.</p>
+
+    <form id="form-cita">
+      <label for="nombre">Nombre completo</label>
+      <input id="nombre" name="nombre" required placeholder="Ej: Santiago Pérez">
+
+      <label for="telefono">Teléfono / WhatsApp</label>
+      <input id="telefono" name="telefono" required placeholder="Ej: 3001234567" inputmode="tel">
+
+      <label for="servicio">Servicio</label>
+      <select id="servicio" name="servicio" required></select>
+
+      <div class="fila">
+        <div style="flex:1; min-width:140px;">
+          <label for="fecha">Fecha</label>
+          <input id="fecha" name="fecha" type="date" required>
+        </div>
+        <div style="flex:1; min-width:140px;">
+          <label for="hora">Hora</label>
+          <input id="hora" name="hora" type="time" required>
+        </div>
+      </div>
+
+      <label for="notas">Notas (opcional)</label>
+      <textarea id="notas" name="notas" rows="2" placeholder="Ej: como me lo hicieron la vez pasada"></textarea>
+
+      <div style="margin-top:18px;">
+        <button type="submit">Confirmar cita</button>
+      </div>
+    </form>
+
+    <div id="resultado"></div>
+  </div>
+
+  <div class="tarjeta acento-fidelidad">
+    <h3>Club de fidelidad</h3>
+    <p style="margin:0; color:var(--crema-tenue);">Por cada 10 cortes pagados, <strong style="color:var(--crema)">el corte número 11 es gratis</strong>. Se lleva la cuenta automáticamente con tu teléfono, sin papelitos que se pierdan.</p>
+  </div>
+
+  <p style="text-align:center;"><a href="panel.html">Panel del barbero →</a></p>
+</main>
+
+<footer>Barbería El Filo</footer>
+
+<script src="js/cliente.js"></script>
+</body>
+</html>

@@ -1,0 +1,240 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap');
+
+:root {
+  --carbon: #1b1815;
+  --carbon-alto: #262019;
+  --cuero: #4a2f22;
+  --crema: #efe6d6;
+  --crema-tenue: #cfc2a8;
+  --oro: #b9893f;
+  --vino: #8c2f34;
+  --verde-ok: #5c7a52;
+  --radio: 3px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--carbon);
+  color: var(--crema);
+  font-family: 'PT Serif', Georgia, serif;
+  line-height: 1.5;
+}
+
+h1, h2, h3, .marca {
+  font-family: 'Oswald', sans-serif;
+  letter-spacing: .02em;
+  margin: 0 0 .4em;
+}
+
+a { color: var(--oro); }
+
+.encabezado {
+  border-bottom: 3px solid var(--oro);
+  background: linear-gradient(180deg, var(--carbon-alto), var(--carbon));
+  padding: 22px 20px 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.encabezado .marca {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--crema);
+}
+.encabezado .marca span { color: var(--oro); }
+
+.franja-barbero {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: repeating-linear-gradient(45deg, var(--vino) 0 8px, var(--crema) 8px 16px, #2f4a5e 16px 24px);
+  flex-shrink: 0;
+  border: 2px solid var(--oro);
+}
+
+main {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 28px 20px 60px;
+}
+
+.tarjeta {
+  background: var(--carbon-alto);
+  border: 1px solid #3a3128;
+  border-left: 4px solid var(--oro);
+  border-radius: var(--radio);
+  padding: 20px;
+  margin-bottom: 18px;
+}
+
+label {
+  display: block;
+  font-family: 'Oswald', sans-serif;
+  font-size: .82rem;
+  color: var(--crema-tenue);
+  margin: 14px 0 6px;
+}
+label:first-child { margin-top: 0; }
+
+input, select, textarea {
+  width: 100%;
+  padding: 11px 12px;
+  background: var(--carbon);
+  border: 1px solid #4a3f32;
+  border-radius: var(--radio);
+  color: var(--crema);
+  font-family: 'PT Serif', Georgia, serif;
+  font-size: 1rem;
+}
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: var(--oro);
+}
+
+button, .boton {
+  cursor: pointer;
+  font-family: 'Oswald', sans-serif;
+  font-size: .95rem;
+  border: none;
+  border-radius: var(--radio);
+  padding: 12px 18px;
+  background: var(--oro);
+  color: var(--carbon);
+  font-weight: 600;
+}
+button:hover, .boton:hover { background: #cf9d4f; }
+button.secundario {
+  background: transparent;
+  border: 1px solid var(--oro);
+  color: var(--oro);
+}
+button.peligro { background: var(--vino); color: var(--crema); }
+button.ok { background: var(--verde-ok); color: var(--crema); }
+button:disabled { opacity: .5; cursor: not-allowed; }
+
+.aviso {
+  padding: 12px 14px;
+  border-radius: var(--radio);
+  margin: 14px 0;
+  font-family: 'Oswald', sans-serif;
+  font-size: .9rem;
+}
+.aviso.exito { background: rgba(92,122,82,.2); border: 1px solid var(--verde-ok); }
+.aviso.error { background: rgba(140,47,52,.2); border: 1px solid var(--vino); }
+
+.fila {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.etiqueta {
+  display: inline-block;
+  font-family: 'Oswald', sans-serif;
+  font-size: .72rem;
+  padding: 3px 8px;
+  border-radius: 999px;
+  border: 1px solid var(--oro);
+  color: var(--oro);
+}
+.etiqueta.roja { border-color: var(--vino); color: #e59aa0; }
+.etiqueta.verde { border-color: var(--verde-ok); color: #b7d3ab; }
+
+table { width: 100%; border-collapse: collapse; font-size: .92rem; }
+th, td { text-align: left; padding: 9px 8px; border-bottom: 1px solid #3a3128; }
+th { font-family: 'Oswald', sans-serif; font-weight: 500; color: var(--crema-tenue); font-size: .78rem; }
+
+.pestanas { display: flex; gap: 6px; margin-bottom: 18px; flex-wrap: wrap; }
+.pestanas button {
+  background: transparent;
+  border: 1px solid #4a3f32;
+  color: var(--crema-tenue);
+}
+.pestanas button.activa { background: var(--oro); color: var(--carbon); border-color: var(--oro); }
+
+.acento-fidelidad {
+  border-left-color: var(--vino);
+}
+.puntos-fidelidad {
+  display: flex;
+  gap: 5px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+.punto {
+  width: 16px; height: 16px; border-radius: 50%;
+  border: 1px solid var(--oro);
+}
+.punto.lleno { background: var(--oro); }
+.punto.gratis { background: var(--vino); border-color: var(--vino); }
+
+.oculto { display: none !important; }
+
+/* ---------- Calendario semanal ---------- */
+.calendario-semana {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+}
+.dia-columna {
+  background: var(--carbon-alto);
+  border: 1px solid #3a3128;
+  border-radius: var(--radio);
+  min-width: 150px;
+  flex: 1 0 150px;
+  padding: 10px;
+}
+.dia-columna.es-hoy { border-color: var(--oro); }
+.dia-encabezado {
+  font-family: 'Oswald', sans-serif;
+  font-size: .82rem;
+  color: var(--crema-tenue);
+  border-bottom: 1px solid #3a3128;
+  padding-bottom: 6px;
+  margin-bottom: 8px;
+}
+.dia-encabezado strong { color: var(--crema); display: block; font-size: 1.1rem; }
+.cita-chip {
+  background: var(--carbon);
+  border-left: 3px solid var(--oro);
+  border-radius: var(--radio);
+  padding: 6px 8px;
+  margin-bottom: 6px;
+  font-size: .82rem;
+}
+.cita-chip.completada { border-left-color: var(--verde-ok); opacity: .8; }
+.cita-chip.cancelada { border-left-color: var(--vino); opacity: .55; text-decoration: line-through; }
+.cita-chip .hora-chip { color: var(--oro); font-family: 'Oswald', sans-serif; }
+.sin-citas-dia { color: var(--crema-tenue); font-size: .8rem; }
+
+/* ---------- Servicios ---------- */
+.servicio-fila {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding: 10px 0;
+  border-bottom: 1px solid #3a3128;
+}
+.servicio-fila:last-child { border-bottom: none; }
+.servicio-fila input { width: auto; }
+.servicio-fila input[type="text"], .servicio-fila input.campo-nombre { flex: 2; min-width: 120px; }
+.servicio-fila input[type="number"] { flex: 1; min-width: 90px; }
+.servicio-fila.inactivo { opacity: .45; }
+
+footer {
+  text-align: center;
+  color: var(--crema-tenue);
+  font-size: .78rem;
+  padding: 20px;
+}
+
+@media (max-width: 480px) {
+  main { padding: 20px 14px 50px; }
+  .encabezado { padding: 16px 14px; }
+}

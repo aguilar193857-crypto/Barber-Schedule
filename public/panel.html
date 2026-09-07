@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Panel del barbero — El Filo</title>
+<link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+<header class="encabezado">
+  <div class="franja-barbero"></div>
+  <div class="marca">PANEL DEL <span>BARBERO</span></div>
+</header>
+
+<main>
+
+  <!-- Pantalla de login -->
+  <div class="tarjeta" id="pantalla-login">
+    <h2>Entrar</h2>
+    <label for="clave">Clave de barbero</label>
+    <input id="clave" type="password" placeholder="••••••••">
+    <div id="error-login"></div>
+    <div style="margin-top:14px;">
+      <button id="btn-entrar">Entrar</button>
+    </div>
+  </div>
+
+  <!-- Panel principal (oculto hasta login) -->
+  <div id="panel-principal" class="oculto">
+
+    <div class="pestanas">
+      <button data-tab="citas" class="activa">Citas</button>
+      <button data-tab="calendario">Calendario semanal</button>
+      <button data-tab="clientes">Clientes para contactar</button>
+      <button data-tab="fidelidad">Fidelidad</button>
+      <button data-tab="servicios">Servicios y precios</button>
+    </div>
+
+    <!-- TAB: Citas -->
+    <section id="tab-citas">
+      <div class="tarjeta">
+        <div class="fila" style="align-items:flex-end;">
+          <div>
+            <label for="filtro-fecha">Filtrar por fecha</label>
+            <input id="filtro-fecha" type="date">
+          </div>
+          <div>
+            <label for="filtro-estado">Estado</label>
+            <select id="filtro-estado">
+              <option value="">Todos</option>
+              <option value="pendiente">Pendiente</option>
+              <option value="completada">Completada</option>
+              <option value="cancelada">Cancelada</option>
+            </select>
+          </div>
+          <button id="btn-recargar-citas" class="secundario">Actualizar</button>
+        </div>
+      </div>
+      <div class="tarjeta" style="overflow-x:auto;">
+        <table id="tabla-citas">
+          <thead>
+            <tr><th>Fecha</th><th>Hora</th><th>Cliente</th><th>Teléfono</th><th>Servicio</th><th>Estado</th><th></th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- TAB: Calendario semanal -->
+    <section id="tab-calendario" class="oculto">
+      <div class="tarjeta">
+        <div class="fila" style="align-items:center;">
+          <button id="btn-semana-anterior" class="secundario">← Semana anterior</button>
+          <strong id="etiqueta-semana"></strong>
+          <button id="btn-semana-siguiente" class="secundario">Semana siguiente →</button>
+        </div>
+      </div>
+      <div id="calendario-semana" class="calendario-semana"></div>
+    </section>
+
+    <!-- TAB: Clientes para contactar -->
+    <section id="tab-clientes" class="oculto">
+      <div class="tarjeta">
+        <p style="margin-top:0; color:var(--crema-tenue);">
+          Clientes cuya última cita completada pasó el umbral de días sin visitarnos. Contáctalos para ofrecerles el servicio.
+        </p>
+      </div>
+      <div id="lista-alertas"></div>
+    </section>
+
+    <!-- TAB: Fidelidad -->
+    <section id="tab-fidelidad" class="oculto">
+      <div id="lista-fidelidad"></div>
+    </section>
+
+    <!-- TAB: Servicios y precios -->
+    <section id="tab-servicios" class="oculto">
+      <div class="tarjeta">
+        <h3>Agregar servicio</h3>
+        <form id="form-nuevo-servicio">
+          <label for="ns-nombre">Nombre</label>
+          <input id="ns-nombre" required placeholder="Ej: Corte para niño">
+          <div class="fila">
+            <div style="flex:1;">
+              <label for="ns-precio">Precio (COP)</label>
+              <input id="ns-precio" type="number" min="0" step="1000" required placeholder="Ej: 15000">
+            </div>
+            <div style="flex:1;">
+              <label for="ns-duracion">Duración (min)</label>
+              <input id="ns-duracion" type="number" min="5" step="5" required placeholder="Ej: 30">
+            </div>
+          </div>
+          <div style="margin-top:14px;">
+            <button type="submit">Agregar servicio</button>
+          </div>
+        </form>
+      </div>
+      <div id="lista-servicios"></div>
+    </section>
+
+  </div>
+</main>
+
+<footer>Barbería El Filo — Panel interno</footer>
+
+<script src="js/panel.js"></script>
+</body>
+</html>
